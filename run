@@ -1,18 +1,40 @@
 #!/bin/sh
 source easy.conf
 
+help=" "
+# Manage option
 if [ $port ]
 then
 	port=$port
 else
-	port=5000
+	port=2727
 fi
 
-while getopts ":p:" option
-do
-	case $option in
-    (p) port=$OPTARG;;
-    esac
+if [ $debug ]
+then
+	debug="--"$debug
+else
+	debug="--no-debugger"
+fi
+
+if [ $reload ]
+then
+	reload="--"$reload
+else
+	reload="--no-reload"
+fi
+
+for arg in "$@"; do
+  shift
+  case "$arg" in
+    "--help") help="--help" ;;
+	"-h") help="--help" ;;
+	"--reload") reload="--reload" ;;
+	"-r") reload="--reload" ;;
+	"--port") port="$1" ;;
+	"-p") port="$1" ;;
+	"--debugger") debug="--debugger";;
+  esac
 done
 
 #check if flask already install
@@ -45,5 +67,5 @@ else
    export FLASK_APP=index.py
 fi
 
-flask run --port $port $@
+flask run --port $port $debug $help $reload
 
