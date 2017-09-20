@@ -1,6 +1,19 @@
 #!/bin/sh
 source easy.conf
 
+if [ $port ]
+then
+	port=$port
+else
+	port=5000
+fi
+
+while getopts ":p:" option
+do
+	case $option in
+    (p) port=$OPTARG;;
+    esac
+done
 
 #check if flask already install
 if ! python -c "import virtualenv" 
@@ -8,8 +21,6 @@ then
 	echo "Install virtualenv"
 	sudo pip install virtualenv
 fi
-
-
 
 venv="easy_venv/bin/activate"
 
@@ -34,5 +45,5 @@ else
    export FLASK_APP=index.py
 fi
 
-flask run $@
+flask run --port $port $@
 
