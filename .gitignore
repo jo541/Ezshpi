@@ -1,2 +1,4 @@
 easy_venv/
 .DS_Store
+*.pyc 
+
