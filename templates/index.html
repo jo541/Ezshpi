@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block body %}
+<!-- Slider Starts -->
+<div class="banner">
+    <div class="caption">
+        <div class="caption-wrapper" >
+            <div class="caption-info">              
+                <img src="/static/images/profile.jpg" class="img-circle profile">
+                <h1 class="animated bounceInUp">Photo de mariage de Gwen et John</h1>
+                <p class="animated bounceInLeft">Merci de renseigner votre code utilisateur. </p>
+                <form class="animated bounceInDown" action="/photo" method="post">
+                    <h4>Code</h4>
+                    <input type="text" name="code" style="color:black;"><br>
+                    {% if message %}
+                    <div style="margin-top: 12px;">
+                        <p class="alert alert-danger">{{ message }}</p>
+                    </div>
+                    {% endif %}
+                    <input type="submit" value="Ouvrir" style="margin-top: 32px;" class="btn btn-default">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- #Slider Ends -->
+{% endblock %}

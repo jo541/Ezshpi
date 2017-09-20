@@ -1,0 +1,38 @@
+#!/bin/sh
+source easy.conf
+
+
+#check if flask already install
+if ! python -c "import virtualenv" 
+then
+	echo "Install virtualenv"
+	sudo pip install virtualenv
+fi
+
+
+
+venv="easy_venv/bin/activate"
+
+# Check if a virtual env already exist 
+if ! [ -e "$venv" ]
+then
+	echo "new virtualenv install"
+	virtualenv easy_venv
+fi
+
+source easy_venv/bin/activate
+
+pip install -r requirement.txt
+
+export FLASK_APP=$index
+
+if [ $FLASK_APP ]
+then
+    echo "You index file is $FLASK_APP"
+else
+   echo "FLASK_APP IS NOT SET, index.py is the default value"
+   export FLASK_APP=index.py
+fi
+
+flask run $@
+
