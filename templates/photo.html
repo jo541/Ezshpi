@@ -6,65 +6,29 @@
     <a href="index.html" class="btn btn-default" >Tout télécharger</a>
 </div>
 <div id="works"  class=" clearfix grid"> 
-    
+    {% for photo in photos %}
     <figure class="effect-oscar  wowload fadeInUp">
-        <img src="images/portfolio/1.jpg" alt="img01"/>
+        <img src="data:image/jpeg;base64,{{ photo.base_64 }}" alt="{{ photo.name }}"/>
         <figcaption>
-            <p>Lily likes to play with crayons and pencils<br>
-            <a href="images/portfolio/1.jpg" title="Photo numéro 1" data-gallery>Agrandir</a>
-            <a href="images/portfolio/1.jpg" download="1.jpg">Télécharger</a>
+            <p><br>
+            <a href="data:image/jpeg;base64,{{ photo.base_64 }}" title="{{ photo.name }}" data-gallery>Agrandir</a>
+            <a href="data:image/jpeg;base64,{{ photo.base_64 }}" download="{{ photo.name }}">Télécharger</a>
             </p>            
         </figcaption>
     </figure>
-    <figure class="effect-oscar  wowload fadeInUp">
-        <img src="images/portfolio/2.jpg" alt="img01"/>
-        <figcaption>
-            <p>Lily likes to play with crayons and pencils<br>
-            <a href="images/portfolio/2.jpg" title="Photo numéro 1" data-gallery>Agrandir</a>
-            <a href="images/portfolio/2.jpg" download="1.jpg">Télécharger</a>
-            </p>            
-        </figcaption>
-    </figure>
-    <figure class="effect-oscar  wowload fadeInUp">
-        <img src="images/portfolio/3.jpg" alt="img01"/>
-        <figcaption>
-            <p>Lily likes to play with crayons and pencils<br>
-            <a href="images/portfolio/3.jpg" title="Photo numéro 1" data-gallery>Agrandir</a>
-            <a href="images/portfolio/3.jpg" download="1.jpg">Télécharger</a>
-            </p>            
-        </figcaption>
-    </figure>
-    <figure class="effect-oscar  wowload fadeInUp">
-        <img src="images/portfolio/4.jpg" alt="img01"/>
-        <figcaption>
-            <p>Lily likes to play with crayons and pencils<br>
-            <a href="images/portfolio/4.jpg" title="Photo numéro 1" data-gallery>Agrandir</a>
-            <a href="images/portfolio/4.jpg" download="1.jpg">Télécharger</a>
-            </p>            
-        </figcaption>
-    </figure>
-    <figure class="effect-oscar  wowload fadeInUp">
-        <img src="images/portfolio/5.jpg" alt="img01"/>
-        <figcaption>
-            <p>Lily likes to play with crayons and pencils<br>
-            <a href="images/portfolio/5.jpg" title="Photo numéro 1" data-gallery>Agrandir</a>
-            <a href="images/portfolio/5.jpg" download="1.jpg">Télécharger</a>
-            </p>            
-        </figcaption>
-    </figure>
-    <figure class="effect-oscar  wowload fadeInUp">
-        <img src="images/portfolio/6.jpg" alt="img01"/>
-        <figcaption>
-            <p>Lily likes to play with crayons and pencils<br>
-            <a href="images/portfolio/6.jpg" title="Photo numéro 1" data-gallery>Agrandir</a>
-            <a href="images/portfolio/6.jpg" download="1.jpg">Télécharger</a>
-            </p>            
-        </figcaption>
-    </figure>
+    {% endfor %}
+</div>
 
-
-
-
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title">Title</h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->    
 </div>
 <!-- works -->
 {% endblock %}
