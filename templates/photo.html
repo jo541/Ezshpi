@@ -2,13 +2,13 @@
 {% block body %}
 <!-- works -->
 <div>
-    <a href="index.html" class="btn btn-default" >Accueil</a>
-    <a href="index.html" class="btn btn-default" >Tout télécharger</a>
+    <a href="/" class="btn btn-default" >Accueil</a>
+    <a href="/" class="btn btn-default" >Tout télécharger</a>
 </div>
 <div id="works"  class=" clearfix grid"> 
     {% for photo in photos %}
     <figure class="effect-oscar  wowload fadeInUp">
-        <img src="data:image/jpeg;base64,{{ photo.base_64 }}" alt="{{ photo.name }}"/>
+        <img src="data:image/jpeg;base64,{{ photo.base64 }}" alt="{{ photo.name }}"/>
         <figcaption>
             <p><br>
             <a href="data:image/jpeg;base64,{{ photo.base_64 }}" title="{{ photo.name }}" data-gallery>Agrandir</a>

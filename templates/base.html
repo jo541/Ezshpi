@@ -9,6 +9,11 @@
 </head>
 
 <body>
+{% if admin %}
+	<div>
+	    <a href="/" class="btn btn-default" >Accueil</a>
+	</div>
+{% endif %}
 {% block body %}{% endblock %}
 </body>
 

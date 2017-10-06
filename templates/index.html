@@ -9,8 +9,9 @@
                 <h1 class="animated bounceInUp">Photo de mariage de Gwen et John</h1>
                 <p class="animated bounceInLeft">Merci de renseigner votre code utilisateur. </p>
                 <form class="animated bounceInDown" action="/photo" method="post">
-                    <h4>Code</h4>
-                    <input type="text" name="code" style="color:black;"><br>
+                    <h4>Identifiant</h4>
+                    Utilisateur : <input type="text" name="username" style="color:black;"><br>
+                    Password  : <input type="password" name="password" style="color:black;margin-top: 5px;"><br>
                     {% if message %}
                     <div style="margin-top: 12px;">
                         <p class="alert alert-danger">{{ message }}</p>

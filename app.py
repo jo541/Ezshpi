@@ -5,9 +5,6 @@ import base64
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy_utils.functions import database_exists, create_database
 
-
-
-
 # Init application 
 app = Flask(__name__)
 # DB configuration
@@ -35,14 +32,15 @@ def create(record):
 from models.users import Users
 from models.photo import Photo
 if not Users.query.filter_by(username='admin').first():
-	create(Users('admin', 'admin@example.com'))
+	create(Users(username = 'admin', email = 'admin@example.com'))
+	create(Users(username = 'demo', email = 'demo@example.com'))
 if not Photo.query.filter_by(name='photo1').first():
 	with open("/Users/tojo/Personel/easy_photo_share/static/images/portfolio/1.jpg", "rb") as image_file:
-		create(Photo('photo1', base64.b64encode(image_file.read())))
+		create(Photo(name= 'photo1', base64 = base64.b64encode(image_file.read())))
 	with open("/Users/tojo/Personel/easy_photo_share/static/images/portfolio/2.jpg", "rb") as image_file:
-		create(Photo('photo2', base64.b64encode(image_file.read())))
+		create(Photo(name = 'photo2', base64 = base64.b64encode(image_file.read())))
 	with open("/Users/tojo/Personel/easy_photo_share/static/images/portfolio/3.jpg", "rb") as image_file:
-		create(Photo('photo3', base64.b64encode(image_file.read())))
+		create(Photo(name = 'photo3', base64 = base64.b64encode(image_file.read())))
 
 
 if __name__ == "__main__":
