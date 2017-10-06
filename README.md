@@ -1,2 +1,2 @@
-# easy_photo_share
+# Ezshpi
 It's a website to easy photo share with friends
